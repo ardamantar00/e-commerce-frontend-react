@@ -23,6 +23,6 @@
 }
 .detail-button:hover{
     cursor: pointer;
-    background-color: rgb(212, 168, 111);
+    background-color:rgb(239, 170, 41);
     transition: all .6s;
 }

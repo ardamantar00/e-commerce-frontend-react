@@ -3,8 +3,10 @@ import "../css/Header.css";
 import { FaBasketShopping } from "react-icons/fa6";
 import { CiLight } from "react-icons/ci";
 import { FaMoon } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigete = useNavigate();
   const [theme, setTheme] = useState(false);
   const changeTheme = () => {
     const root = document.getElementById("root");
@@ -28,7 +30,12 @@ function Header() {
       }}
     >
       <div className="flex-row">
-        <img className="logo" src="./src/images/logo.png" alt="" />
+        <img
+          className="logo"
+          src="./src/images/logo.png"
+          alt=""
+          onClick={() => navigete("/")}
+        />
         <p className="logo-text">AYM A.Ş</p>
       </div>
       <div className="flex-row">
