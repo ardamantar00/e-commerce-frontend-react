@@ -4,8 +4,13 @@ import { FaBasketShopping } from "react-icons/fa6";
 import { CiLight } from "react-icons/ci";
 import { FaMoon } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Badge from "@mui/material/Badge";
+import { useSelector, useDispatch } from "react-redux";
+import { setDrawer } from "../redux/slices/basketSlice";
 
 function Header() {
+  const dispatch = useDispatch();
+  const { products, count } = useSelector((store) => store.basket);
   const navigete = useNavigate();
   const [theme, setTheme] = useState(false);
   const changeTheme = () => {
@@ -52,8 +57,13 @@ function Header() {
           ) : (
             <CiLight className="icon" onClick={changeTheme} />
           )}
-
-          <FaBasketShopping className="icon" />
+          <Badge
+            onClick={() => dispatch(setDrawer())}
+            badgeContent={products.length}
+            color="error"
+          >
+            <FaBasketShopping className="icon" style={{ marginRight: "6px" }} />
+          </Badge>
         </div>
       </div>
     </div>

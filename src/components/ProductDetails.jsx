@@ -6,10 +6,23 @@ import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
 
 import "../css/ProductDetails.css";
+import { addToBasket, calculateBasket } from "../redux/slices/basketSlice";
 function ProductDetails() {
   const [count, setCount] = useState(0);
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count + -1);
+  const addBasket = () => {
+    const payload = {
+      id,
+      price,
+      image,
+      title,
+      description,
+      count,
+    };
+    dispatch(addToBasket(payload));
+    dispatch(calculateBasket());
+  };
   const { id } = useParams();
   const { products, selectedProduct } = useSelector((store) => store.product);
   const { price, image, title, description } = selectedProduct;
@@ -43,7 +56,9 @@ function ProductDetails() {
           />
         </div>
         <div>
-          <button className="add-to-cart-button">Sepete Ekle</button>
+          <button className="add-to-cart-button" onClick={addBasket}>
+            Sepete Ekle
+          </button>
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ font-family: Arial;
 }
 .plus_and_minus-button{
     font-size: 40px;
-    margin-right: 5px;
+    margin:  0 5px;  
     cursor: pointer;
 }
 .add-to-cart-button{
